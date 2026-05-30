@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="鲁世豪的知识小屋：面向初学者的离线数仓基础知识网站，涵盖架构、分层、建模、调度、质量和治理。"
+    />
+    <title>鲁世豪的知识小屋 | 离线数仓基础知识</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark">鲁</span>
+        <span>
+          <strong>鲁世豪的知识小屋</strong>
+          <small>Offline Data Warehouse Notes</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#overview">基础概览</a>
+        <a href="#layers">数仓分层</a>
+        <a href="#modeling">数据建模</a>
+        <a href="#workflow">离线链路</a>
+        <a href="#quality">质量治理</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="shelf shelf-top">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="house">
+            <div class="roof"></div>
+            <div class="window"></div>
+            <div class="door"></div>
+          </div>
+          <div class="data-line line-a"></div>
+          <div class="data-line line-b"></div>
+          <div class="shelf shelf-bottom">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">无需登录 · 随时翻阅 · 面向离线数仓入门</p>
+          <h1 id="hero-title">鲁世豪的知识小屋</h1>
+          <p class="lead">
+            把离线数据仓库的核心概念整理成一间安静、清晰的小屋：从数据采集、ODS、DWD、DWS、ADS，到建模、调度、质量和治理，帮助你建立完整的数仓知识地图。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#overview">开始学习</a>
+            <a class="button secondary" href="#map">查看知识地图</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="section intro-section" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <p class="eyebrow">01 · 基础概览</p>
+          <h2 id="overview-title">什么是离线数仓</h2>
+        </div>
+        <div class="two-column">
+          <article class="note-panel">
+            <h3>核心定义</h3>
+            <p>
+              离线数仓是面向分析场景的数据系统，通常以天、小时等批处理周期沉淀业务数据，经过清洗、标准化、建模和汇总后，为报表、经营分析、指标体系和数据应用提供稳定数据。
+            </p>
+          </article>
+          <div class="stat-grid" aria-label="离线数仓关键词">
+            <div><strong>批处理</strong><span>按周期加工</span></div>
+            <div><strong>主题域</strong><span>按业务组织</span></div>
+            <div><strong>分层设计</strong><span>降低耦合</span></div>
+            <div><strong>指标复用</strong><span>统一口径</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="map" class="section map-section" aria-labelledby="map-title">
+        <div class="section-heading">
+          <p class="eyebrow">02 · 知识地图</p>
+          <h2 id="map-title">一条典型离线数仓链路</h2>
+        </div>
+        <div class="pipeline" role="list">
+          <div class="pipeline-step" role="listitem">
+            <span>1</span>
+            <h3>数据源</h3>
+            <p>业务库、日志、文件、第三方数据等原始来源。</p>
+          </div>
+          <div class="pipeline-step" role="listitem">
+            <span>2</span>
+            <h3>采集同步</h3>
+            <p>使用批量抽取、增量同步或日志采集进入数据平台。</p>
+          </div>
+          <div class="pipeline-step" role="listitem">
+            <span>3</span>
+            <h3>数仓分层</h3>
+            <p>通过 ODS、DWD、DWS、ADS 逐层沉淀和复用。</p>
+          </div>
+          <div class="pipeline-step" role="listitem">
+            <span>4</span>
+            <h3>分析服务</h3>
+            <p>服务 BI 看板、指标平台、数据集市和业务分析。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="layers" class="section" aria-labelledby="layers-title">
+        <div class="section-heading">
+          <p class="eyebrow">03 · 数仓分层</p>
+          <h2 id="layers-title">让数据从原始走向可用</h2>
+        </div>
+        <div class="layer-board">
+          <article>
+            <span>ODS</span>
+            <h3>原始数据层</h3>
+            <p>尽量保持业务原貌，承接数据源，便于追溯和重新加工。</p>
+          </article>
+          <article>
+            <span>DWD</span>
+            <h3>明细数据层</h3>
+            <p>完成清洗、去重、维度退化、字段标准化，形成可复用明细事实。</p>
+          </article>
+          <article>
+            <span>DWS</span>
+            <h3>汇总服务层</h3>
+            <p>围绕主题和粒度进行轻度汇总，为指标和宽表提供公共能力。</p>
+          </article>
+          <article>
+            <span>ADS</span>
+            <h3>应用数据层</h3>
+            <p>面向报表、专题分析和业务应用输出最终可消费的数据结果。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="modeling" class="section modeling-section" aria-labelledby="modeling-title">
+        <div class="section-heading">
+          <p class="eyebrow">04 · 数据建模</p>
+          <h2 id="modeling-title">事实、维度与指标口径</h2>
+        </div>
+        <div class="model-grid">
+          <article class="note-panel">
+            <h3>事实表</h3>
+            <p>记录业务过程中的可度量事件，例如订单支付、商品浏览、用户注册。重点关注粒度、度量值和业务过程边界。</p>
+          </article>
+          <article class="note-panel">
+            <h3>维度表</h3>
+            <p>描述分析对象的上下文，例如用户、商品、地区、日期。好的维度可以让分析更自然，也能减少重复加工。</p>
+          </article>
+          <article class="note-panel">
+            <h3>指标体系</h3>
+            <p>把业务问题转成统一口径的指标，例如 GMV、支付用户数、转化率。指标要明确统计周期、过滤条件和计算公式。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="section workflow-section" aria-labelledby="workflow-title">
+        <div class="section-heading">
+          <p class="eyebrow">05 · 离线链路</p>
+          <h2 id="workflow-title">每天跑起来的一套工程流程</h2>
+        </div>
+        <ol class="timeline">
+          <li>
+            <strong>采集</strong>
+            <span>从业务库、日志系统或文件系统同步数据，记录批次和分区。</span>
+          </li>
+          <li>
+            <strong>清洗</strong>
+            <span>处理空值、脏数据、重复数据、字段类型和枚举映射。</span>
+          </li>
+          <li>
+            <strong>加工</strong>
+            <span>按分层规范产出明细表、汇总表、宽表和指标结果。</span>
+          </li>
+          <li>
+            <strong>调度</strong>
+            <span>通过依赖编排保障任务顺序，并配置重跑、告警和资源队列。</span>
+          </li>
+          <li>
+            <strong>交付</strong>
+            <span>将结果提供给报表、数据产品、临时分析和下游系统。</span>
+          </li>
+        </ol>
+      </section>
+
+      <section id="quality" class="section quality-section" aria-labelledby="quality-title">
+        <div class="section-heading">
+          <p class="eyebrow">06 · 质量治理</p>
+          <h2 id="quality-title">让数据值得被信任</h2>
+        </div>
+        <div class="quality-grid">
+          <article>
+            <h3>数据质量</h3>
+            <p>校验完整性、唯一性、及时性、波动范围和字段合法性。</p>
+          </article>
+          <article>
+            <h3>元数据管理</h3>
+            <p>维护表、字段、血缘、负责人和业务含义，降低协作成本。</p>
+          </article>
+          <article>
+            <h3>权限与安全</h3>
+            <p>按数据敏感级别控制访问，做好脱敏、审计和最小权限。</p>
+          </article>
+          <article>
+            <h3>成本优化</h3>
+            <p>治理无效任务、冷热数据、存储生命周期和重复计算。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section quiz-section" aria-labelledby="quiz-title">
+        <div class="section-heading">
+          <p class="eyebrow">07 · 小屋自测</p>
+          <h2 id="quiz-title">快速检查你是否抓住重点</h2>
+        </div>
+        <div class="quiz" data-quiz>
+          <p class="quiz-question">哪一层通常用于保留接近原始来源的数据，方便追溯和重跑？</p>
+          <div class="quiz-options">
+            <button type="button" data-answer="wrong">DWS 汇总服务层</button>
+            <button type="button" data-answer="right">ODS 原始数据层</button>
+            <button type="button" data-answer="wrong">ADS 应用数据层</button>
+          </div>
+          <p class="quiz-result" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <strong>鲁世豪的知识小屋</strong>
+      <span>离线数仓基础知识 · 静态站点 · 无需登录</span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
